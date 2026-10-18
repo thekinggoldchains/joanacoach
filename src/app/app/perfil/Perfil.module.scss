@@ -1,0 +1,136 @@
+@use "../../../estilos/variaveis" as *;
+@use "../../../estilos/mixins" as *;
+
+.paginaPerfil {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 16px;
+}
+
+.topoPerfil {
+  @include cartao-escuro;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+}
+
+.avatarGrande {
+  width: 56px;
+  height: 56px;
+  border-radius: $raio-pilula;
+  background-color: rgba(197, 160, 89, 0.2);
+  border: 1.5px solid $cor-dourado-primario;
+  color: $cor-dourado-primario;
+  font-family: $fonte-destaque;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dadosTopo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nomeAluno {
+  font-family: $fonte-destaque;
+  font-size: 22px;
+  font-weight: 700;
+  color: $cor-texto-claro;
+  margin: 0;
+}
+
+.emailAluno {
+  font-family: $fonte-interface;
+  font-size: 13px;
+  color: #BDBDBD;
+  margin: 0;
+}
+
+.seloStatus {
+  align-self: flex-start;
+  background-color: rgba(46, 125, 50, 0.22);
+  color: #81C784;
+  font-family: $fonte-interface;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: $raio-pilula;
+  margin-top: 2px;
+}
+
+.cartaoSecao {
+  @include superficie-cartao;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tituloSecao {
+  font-family: $fonte-destaque;
+  font-size: 20px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+  margin: 0;
+  border-bottom: 1px solid $cor-borda;
+  padding-bottom: 8px;
+}
+
+.listaDados {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.linhaDado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $fonte-interface;
+  font-size: 13px;
+}
+
+.rotuloDado {
+  color: $cor-texto-secundario;
+}
+
+.valorDado {
+  color: $cor-texto-primario;
+  font-weight: 600;
+}
+
+.seloObjetivo {
+  background-color: $cor-dourado-suave;
+  color: $cor-dourado-primario;
+  font-family: $fonte-interface;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: $raio-pilula;
+}
+
+.alertaClinico {
+  background-color: rgba(245, 124, 0, 0.12);
+  border: 1px solid $cor-alerta;
+  color: $cor-texto-primario;
+  border-radius: $raio-pequeno;
+  padding: 10px 12px;
+  font-family: $fonte-interface;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.linkSair {
+  @include botao-contorno;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: $cor-perigo;
+  border-color: rgba(198, 40, 40, 0.35);
+}

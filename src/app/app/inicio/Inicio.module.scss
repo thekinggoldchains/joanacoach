@@ -1,0 +1,169 @@
+@use "../../../estilos/variaveis" as *;
+@use "../../../estilos/mixins" as *;
+
+.paginaInicio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 16px;
+}
+
+.topoEscuro {
+  @include cartao-escuro;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.saudacaoTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rotuloMarca {
+  font-family: $fonte-interface;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $cor-dourado-primario;
+  font-weight: 700;
+}
+
+.tituloSaudacao {
+  font-family: $fonte-destaque;
+  font-size: 24px;
+  font-weight: 700;
+  color: $cor-texto-claro;
+  margin: 0;
+}
+
+.subtituloObjetivo {
+  font-family: $fonte-interface;
+  font-size: 12px;
+  color: #BDBDBD;
+  margin: 0;
+}
+
+.avatarInicial {
+  width: 44px;
+  height: 44px;
+  border-radius: $raio-pilula;
+  background-color: rgba(197, 160, 89, 0.2);
+  border: 1.5px solid $cor-dourado-primario;
+  color: $cor-dourado-primario;
+  font-family: $fonte-destaque;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartaoProximoTreino {
+  @include cartao-escuro;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-color: rgba(197, 160, 89, 0.35);
+}
+
+.topoProximoTreino {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seloProximoTreino {
+  background-color: rgba(197, 160, 89, 0.18);
+  color: $cor-dourado-primario;
+  font-family: $fonte-interface;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: $raio-pilula;
+}
+
+.duracaoTreino {
+  font-family: $fonte-interface;
+  font-size: 12px;
+  color: #BDBDBD;
+}
+
+.nomeTreino {
+  font-family: $fonte-destaque;
+  font-size: 21px;
+  font-weight: 700;
+  color: $cor-texto-claro;
+  margin: 0;
+}
+
+.botaoIniciarTreino {
+  @include botao-dourado;
+  width: 100%;
+  text-align: center;
+}
+
+.secaoResumo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cabecalhoSecao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tituloSecao {
+  font-family: $fonte-destaque;
+  font-size: 20px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+  margin: 0;
+}
+
+.linkEvolucao {
+  font-family: $fonte-interface;
+  font-size: 13px;
+  font-weight: 600;
+  color: $cor-dourado-primario;
+  text-decoration: none;
+}
+
+.gradeMetricas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.cartaoMetrica {
+  @include superficie-cartao;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rotuloMetrica {
+  font-family: $fonte-interface;
+  font-size: 11px;
+  color: $cor-texto-secundario;
+}
+
+.valorMetrica {
+  font-family: $fonte-interface;
+  font-size: 16px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.variacaoPositiva {
+  font-family: $fonte-interface;
+  font-size: 11px;
+  font-weight: 600;
+  color: $cor-sucesso;
+}

@@ -1,0 +1,228 @@
+@use "../../../estilos/variaveis" as *;
+@use "../../../estilos/mixins" as *;
+
+.paginaConvite {
+  min-height: 100vh;
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+.containerMobile {
+  width: 100%;
+  max-width: $largura-maxima-mobile;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cabecalhoEscuro {
+  @include cartao-escuro;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 24px 20px;
+}
+
+.monograma {
+  width: 48px;
+  height: 48px;
+  border-radius: $raio-pilula;
+  background-color: rgba(197, 160, 89, 0.16);
+  border: 1.5px solid $cor-dourado-primario;
+  color: $cor-dourado-primario;
+  font-family: $fonte-destaque;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seloConvite {
+  background-color: rgba(197, 160, 89, 0.2);
+  color: $cor-dourado-primario;
+  font-family: $fonte-interface;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: $raio-pilula;
+}
+
+.tituloBoasVindas {
+  font-family: $fonte-destaque;
+  font-size: 24px;
+  font-weight: 700;
+  color: $cor-texto-claro;
+  margin: 4px 0 0;
+}
+
+.subtituloBoasVindas {
+  font-family: $fonte-interface;
+  font-size: 13px;
+  color: #BDBDBD;
+  margin: 0;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cartaoEtapa {
+  @include superficie-cartao;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cabecalhoEtapa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid $cor-borda;
+  padding-bottom: 10px;
+}
+
+.numeroEtapa {
+  width: 26px;
+  height: 26px;
+  border-radius: $raio-pilula;
+  background-color: $cor-dourado-primario;
+  color: $cor-texto-claro;
+  font-family: $fonte-interface;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tituloEtapa {
+  font-family: $fonte-destaque;
+  font-size: 20px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+  margin: 0;
+}
+
+.descricaoEtapa {
+  font-family: $fonte-interface;
+  font-size: 13px;
+  color: $cor-texto-secundario;
+  margin: 0;
+}
+
+.gradeCampos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.grupoCampo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rotulo {
+  font-family: $fonte-interface;
+  font-size: 13px;
+  font-weight: 600;
+  color: $cor-texto-primario;
+}
+
+.campo {
+  @include campo-entrada;
+  color: $cor-texto-primario;
+  background-color: $cor-fundo-cartao;
+}
+
+.listaParq {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.itemParq {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid $cor-borda;
+  border-radius: $raio-pequeno;
+  background-color: $cor-fundo-claro;
+}
+
+.perguntaParq {
+  font-family: $fonte-interface;
+  font-size: 13px;
+  color: $cor-texto-primario;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.botoesSimNao {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.botaoOpcao {
+  padding: 6px 12px;
+  border-radius: $raio-pilula;
+  border: 1px solid $cor-borda;
+  background-color: $cor-fundo-cartao;
+  color: $cor-texto-secundario;
+  font-family: $fonte-interface;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.opcaoSimAtiva {
+  background-color: rgba(245, 124, 0, 0.15);
+  border-color: $cor-alerta;
+  color: $cor-alerta;
+}
+
+.opcaoNaoAtiva {
+  background-color: rgba(46, 125, 50, 0.14);
+  border-color: $cor-sucesso;
+  color: $cor-sucesso;
+}
+
+.alertaParq {
+  background-color: $cor-dourado-suave;
+  border: 1px solid $cor-borda-dourada;
+  color: $cor-texto-primario;
+  border-radius: $raio-pequeno;
+  padding: 10px 12px;
+  font-family: $fonte-interface;
+  font-size: 12px;
+}
+
+.botaoConcluir {
+  @include botao-dourado;
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 15px;
+}
+
+.mensagemSucesso {
+  @include superficie-cartao;
+  border-color: $cor-sucesso;
+  color: $cor-sucesso;
+  text-align: center;
+  font-family: $fonte-interface;
+  font-weight: 600;
+}

@@ -22,10 +22,9 @@ export interface PropriedadesPerfilClienteAdmin {
 
 type AbaPerfil = "RESUMO" | "AVALIACOES" | "ANAMNESE" | "PROGRESSO";
 
-export default function PaginaPerfilClienteAdmin({
-  params,
-  clienteIdInicial,
-}: PropriedadesPerfilClienteAdmin) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function PaginaPerfilClienteAdmin(propriedades: any = {}) {
+  const { params, clienteIdInicial }: PropriedadesPerfilClienteAdmin = propriedades;
   const [clienteId, setClienteId] = useState<string>(clienteIdInicial || "cli_joao");
   const [perfil, setPerfil] = useState<PerfilCompletoCliente | null>(null);
   const [abaAtiva, setAbaAtiva] = useState<AbaPerfil>("RESUMO");
