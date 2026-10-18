@@ -1,0 +1,177 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PapelUsuario {
+  ADMIN
+  ALUNO
+}
+
+enum StatusCliente {
+  CONVIDADO
+  ATIVO
+  INATIVO
+}
+
+enum SexoBiologico {
+  MASCULINO
+  FEMININO
+}
+
+enum NivelAtividade {
+  SEDENTARIO
+  LEVE
+  MODERADO
+  INTENSO
+}
+
+enum ProtocoloAvaliacao {
+  POLLOCK_7
+  POLLOCK_3
+  BIOIMPEDANCIA
+  MANUAL
+}
+
+enum AnguloFoto {
+  FRENTE
+  COSTAS
+  PERFIL
+}
+
+model Usuario {
+  id                String          @id @default(cuid())
+  nome              String
+  email             String          @unique
+  senhaHash         String
+  papel             PapelUsuario    @default(ALUNO)
+  criadoEm          DateTime        @default(now())
+  atualizadoEm      DateTime        @updatedAt
+
+  clientesGeridos   PerfilCliente[] @relation("ClientesDoTreinador")
+  perfilAluno       PerfilCliente?  @relation("UsuarioDoAluno")
+}
+
+model PerfilCliente {
+  id                  String             @id @default(cuid())
+  treinadorId         String
+  treinador           Usuario            @relation("ClientesDoTreinador", fields: [treinadorId], references: [id], onDelete: Cascade)
+  usuarioId           String?            @unique
+  usuario             Usuario?           @relation("UsuarioDoAluno", fields: [usuarioId], references: [id], onDelete: SetNull)
+
+  nomeCompleto        String
+  email               String
+  telefone            String?
+  dataNascimento      DateTime?
+  sexo                SexoBiologico      @default(FEMININO)
+  alturaCm            Float?
+  objetivoPrincipal   String?
+  status              StatusCliente      @default(CONVIDADO)
+
+  tokenConvite        String?            @unique
+  conviteExpiraEm     DateTime?
+
+  criadoEm            DateTime           @default(now())
+  atualizadoEm        DateTime           @updatedAt
+
+  anamnese            Anamnese?
+  avaliacoes          AvaliacaoFisica[]
+  fotosProgresso      FotoProgresso[]
+
+  @@index([treinadorId])
+  @@unique([treinadorId, email])
+}
+
+model Anamnese {
+  id                         String         @id @default(cuid())
+  clienteId                  String         @unique
+  cliente                    PerfilCliente  @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+
+  parqProblemaCardiaco       Boolean        @default(false)
+  parqDorPeitoAtividade      Boolean        @default(false)
+  parqDorPeitoRepouso        Boolean        @default(false)
+  parqTonturaDesmaio         Boolean        @default(false)
+  parqProblemaOsseoArticular Boolean        @default(false)
+  parqMedicamentoPressao     Boolean        @default(false)
+  parqOutraRazaoMedica       Boolean        @default(false)
+  possuiRestricaoMedica      Boolean        @default(false)
+
+  lesoesOuDores              String?
+  historicoCirurgias         String?
+  medicamentos               String?
+  alergias                   String?
+  mediaHorasSono             Float?
+  qualidadeSono              String?
+  nivelAtividadeTrabalho     NivelAtividade @default(SEDENTARIO)
+  ingestaoAguaLitros         Float?
+  observacoes                String?
+
+  preenchidaEm               DateTime       @default(now())
+  atualizadoEm               DateTime       @updatedAt
+}
+
+model AvaliacaoFisica {
+  id                       String             @id @default(cuid())
+  clienteId                String
+  cliente                  PerfilCliente      @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+  avaliadoEm               DateTime           @default(now())
+
+  pesoKg                   Float
+  alturaCm                 Float
+  imc                      Float
+
+  protocolo                ProtocoloAvaliacao @default(POLLOCK_7)
+  dobraPeitoralMm          Float?
+  dobraAxilarMediaMm       Float?
+  dobraTricepsMm           Float?
+  dobraSubescapularMm      Float?
+  dobraAbdominalMm         Float?
+  dobraSuprailiacaMm       Float?
+  dobraCoxaMm              Float?
+
+  somaDobrasMm             Float?
+  densidadeCorporal        Float?
+  percentualGordura        Float?
+  massaGordaKg             Float?
+  massaMagraKg             Float?
+
+  pescocoCm                Float?
+  ombrosCm                 Float?
+  toraxCm                  Float?
+  cinturaCm                Float?
+  abdomenCm                Float?
+  quadrilCm                Float?
+  bracoRelaxadoDireitoCm   Float?
+  bracoRelaxadoEsquerdoCm  Float?
+  bracoContraidoDireitoCm  Float?
+  bracoContraidoEsquerdoCm Float?
+  antebracoDireitoCm       Float?
+  antebracoEsquerdoCm      Float?
+  coxaDireitaCm            Float?
+  coxaEsquerdaCm           Float?
+  panturrilhaDireitaCm     Float?
+  panturrilhaEsquerdaCm    Float?
+
+  observacoes              String?
+  fotos                    FotoProgresso[]
+
+  @@index([clienteId, avaliadoEm])
+}
+
+model FotoProgresso {
+  id           String           @id @default(cuid())
+  clienteId    String
+  cliente      PerfilCliente    @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+  avaliacaoId  String?
+  avaliacao    AvaliacaoFisica? @relation(fields: [avaliacaoId], references: [id], onDelete: SetNull)
+
+  angulo       AnguloFoto
+  urlImagem    String
+  registradaEm DateTime         @default(now())
+
+  @@index([clienteId, registradaEm])
+}
