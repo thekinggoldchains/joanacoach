@@ -1,0 +1,48 @@
+@use "../../estilos/variaveis" as *;
+@use "../../estilos/mixins" as *;
+
+.barraInferior {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: $largura-maxima-mobile;
+  background-color: $cor-fundo-cartao;
+  color: $cor-texto-primario;
+  border-top: 1px solid $cor-borda;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 8px 4px;
+  z-index: 50;
+  box-shadow: 0 -2px 12px rgba(20, 20, 20, 0.05);
+}
+
+.itemMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 4px;
+  text-decoration: none;
+  color: $cor-texto-secundario;
+  font-family: $fonte-interface;
+  font-size: 11px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $cor-dourado-primario;
+  }
+}
+
+.itemAtivo {
+  color: $cor-dourado-primario;
+  font-weight: 700;
+}
+
+.icone {
+  font-size: 18px;
+  line-height: 1;
+}
