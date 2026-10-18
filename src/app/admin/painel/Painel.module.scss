@@ -1,0 +1,152 @@
+@use "../../../estilos/variaveis" as *;
+@use "../../../estilos/mixins" as *;
+
+.paginaPainel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: $cor-texto-primario;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tituloPagina {
+  font-family: $fonte-destaque;
+  font-size: 28px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.subtituloPagina {
+  font-size: 14px;
+  color: $cor-texto-secundario;
+  margin-top: 2px;
+}
+
+.botaoAcaoDourado {
+  @include botao-dourado;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.gradeIndicadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.cartaoIndicador {
+  @include superficie-cartao;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rotuloIndicador {
+  font-size: 13px;
+  font-weight: 600;
+  color: $cor-texto-secundario;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.valorIndicador {
+  font-size: 28px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.detalheIndicador {
+  font-size: 12px;
+  color: $cor-dourado-primario;
+  font-weight: 600;
+}
+
+.gradeSecoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.cartaoSecao {
+  @include superficie-cartao;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cabecalhoCartao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $cor-borda;
+  padding-bottom: 10px;
+}
+
+.tituloCartao {
+  font-size: 16px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.linkTodos {
+  font-size: 13px;
+  font-weight: 600;
+  color: $cor-dourado-primario;
+}
+
+.listaRapida {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.itemCliente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border: 1px solid $cor-borda;
+  border-radius: $raio-pequeno;
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+}
+
+.infoCliente {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nomeCliente {
+  font-size: 14px;
+  font-weight: 600;
+  color: $cor-texto-primario;
+}
+
+.metaCliente {
+  font-size: 12px;
+  color: $cor-texto-secundario;
+}
+
+.seloAlerta {
+  background-color: rgba(245, 124, 0, 0.14);
+  color: $cor-alerta;
+  padding: 4px 10px;
+  border-radius: $raio-pilula;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.botaoVer {
+  @include botao-contorno;
+  text-decoration: none;
+}

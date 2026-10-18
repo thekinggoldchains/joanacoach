@@ -1,0 +1,17 @@
+@use "../../estilos/variaveis" as *;
+@use "../../estilos/mixins" as *;
+
+.estruturaAdmin {
+  display: flex;
+  min-height: 100vh;
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+}
+
+.conteudoPrincipal {
+  flex: 1;
+  min-width: 0;
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+  padding: 28px 32px;
+}

@@ -1,0 +1,246 @@
+@use "../../../../estilos/variaveis" as *;
+@use "../../../../estilos/mixins" as *;
+
+.paginaPerfil {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: $cor-texto-primario;
+}
+
+.cabecalhoPerfil {
+  @include superficie-cartao;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.identidadeCliente {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nomeCliente {
+  font-family: $fonte-destaque;
+  font-size: 28px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.metaCliente {
+  font-size: 14px;
+  color: $cor-texto-secundario;
+}
+
+.alertaParq {
+  background-color: rgba(245, 124, 0, 0.14);
+  border: 1px solid $cor-alerta;
+  color: $cor-texto-primario;
+  border-radius: $raio-medio;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.barraAbas {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid $cor-borda;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.botaoAba {
+  background-color: $cor-fundo-cartao;
+  color: $cor-texto-primario;
+  border: 1px solid $cor-borda;
+  border-radius: $raio-pequeno;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botaoAbaAtiva {
+  background-color: $cor-dourado-primario;
+  color: $cor-texto-claro;
+  border-color: $cor-dourado-primario;
+}
+
+.gradeResumo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.cartaoClaro {
+  @include superficie-cartao;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tituloCartao {
+  font-size: 16px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+  border-bottom: 1px solid $cor-borda;
+  padding-bottom: 8px;
+}
+
+.listaDados {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.itemDado {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rotuloDado {
+  font-size: 12px;
+  color: $cor-texto-secundario;
+}
+
+.valorDado {
+  font-size: 15px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.gradeVariacoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.blocoVariacao {
+  background-color: $cor-fundo-claro;
+  border: 1px solid $cor-borda;
+  border-radius: $raio-pequeno;
+  padding: 10px;
+  color: $cor-texto-primario;
+}
+
+.valorPositivo {
+  font-size: 18px;
+  font-weight: 700;
+  color: $cor-sucesso;
+}
+
+.graficoSvg {
+  width: 100%;
+  height: 140px;
+  background-color: $cor-fundo-claro;
+  border-radius: $raio-pequeno;
+  padding: 8px;
+}
+
+.gradeAvaliacao {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gradeCamposDobras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.rotuloEntrada {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $cor-texto-primario;
+}
+
+.campoEntrada {
+  @include campo-entrada;
+}
+
+.cartaoResultadoEscuro {
+  @include cartao-escuro;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tituloResultadoEscuro {
+  font-family: $fonte-destaque;
+  font-size: 20px;
+  font-weight: 700;
+  color: $cor-dourado-primario;
+  border-bottom: 1px solid #2A2A2A;
+  padding-bottom: 8px;
+}
+
+.linhaResultado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #BDBDBD;
+
+  strong {
+    color: $cor-texto-claro;
+    font-size: 16px;
+  }
+}
+
+.destaqueBfDourado {
+  background-color: rgba(197, 160, 89, 0.16);
+  border: 1px solid $cor-dourado-primario;
+  border-radius: $raio-pequeno;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $cor-texto-claro;
+
+  strong {
+    font-size: 22px;
+    color: $cor-dourado-primario;
+  }
+}
+
+.botaoSalvarAvaliacao {
+  @include botao-dourado;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.barraAngulos {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.gradeComparadorFotos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cartaoFoto {
+  background-color: $cor-dourado-suave;
+  border: 1px solid $cor-borda-dourada;
+  border-radius: $raio-medio;
+  padding: 16px;
+  color: $cor-texto-primario;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

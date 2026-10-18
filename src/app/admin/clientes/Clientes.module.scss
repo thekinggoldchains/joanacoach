@@ -1,0 +1,210 @@
+@use "../../../estilos/variaveis" as *;
+@use "../../../estilos/mixins" as *;
+
+.paginaClientes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: $cor-texto-primario;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tituloPagina {
+  font-family: $fonte-destaque;
+  font-size: 28px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.subtituloPagina {
+  font-size: 14px;
+  color: $cor-texto-secundario;
+  margin-top: 2px;
+}
+
+.botaoNovoCliente {
+  @include botao-dourado;
+}
+
+.barraFerramentas {
+  @include superficie-cartao;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.campoPesquisa {
+  @include campo-entrada;
+  max-width: 360px;
+}
+
+.grupoFiltros {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pilulaFiltro {
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+  border: 1px solid $cor-borda;
+  border-radius: $raio-pilula;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pilulaFiltroAtiva {
+  background-color: $cor-dourado-primario;
+  color: $cor-texto-claro;
+  border-color: $cor-dourado-primario;
+}
+
+.cartaoTabela {
+  @include superficie-cartao;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  color: $cor-texto-primario;
+
+  th,
+  td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid $cor-borda;
+    color: $cor-texto-primario;
+    font-size: 14px;
+  }
+
+  th {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $cor-texto-secundario;
+    background-color: $cor-fundo-claro;
+  }
+}
+
+.celulaCliente {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nomeCliente {
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.emailCliente {
+  font-size: 12px;
+  color: $cor-texto-secundario;
+}
+
+.seloAtivo {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: $raio-pilula;
+  background-color: rgba(46, 125, 50, 0.14);
+  color: $cor-sucesso;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.seloConvidado {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: $raio-pilula;
+  background-color: $cor-dourado-suave;
+  color: $cor-dourado-hover;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.botaoVer {
+  @include botao-contorno;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.modalFundo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20, 20, 20, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.modalCartao {
+  @include superficie-cartao;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tituloModal {
+  font-family: $fonte-destaque;
+  font-size: 22px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.gradeFormulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.campoCompleto {
+  grid-column: 1 / -1;
+}
+
+.rotuloCampo {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: $cor-texto-primario;
+  margin-bottom: 4px;
+}
+
+.entrada {
+  @include campo-entrada;
+}
+
+.caixaConviteGerado {
+  background-color: $cor-dourado-suave;
+  border: 1px solid $cor-borda-dourada;
+  border-radius: $raio-pequeno;
+  padding: 12px;
+  color: $cor-texto-primario;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acoesModal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
