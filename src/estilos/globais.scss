@@ -1,0 +1,32 @@
+@use "variaveis" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: $fonte-interface;
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+select,
+textarea,
+button,
+table,
+th,
+td {
+  font-family: inherit;
+  color: $cor-texto-primario;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
