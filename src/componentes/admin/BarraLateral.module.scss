@@ -12,6 +12,10 @@
   padding: 24px 0;
   border-right: 1px solid #2A2A2A;
   flex-shrink: 0;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 }
 
 .topoMarca {

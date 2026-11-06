@@ -50,6 +50,15 @@ export default function PaginaPerfilClienteAdmin(propriedades: any = {}) {
   const [mensagemSucesso, setMensagemSucesso] = useState<string | null>(null);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const parametrosUrl = new URLSearchParams(window.location.search);
+      if (parametrosUrl.get("aba") === "avaliacoes") {
+        setAbaAtiva("AVALIACOES");
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     if (clienteIdInicial) {
       setClienteId(clienteIdInicial);
       return;

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#141414"/>
+  <rect x="36" y="36" width="440" height="440" rx="86" fill="none" stroke="#C5A059" stroke-width="6" stroke-opacity="0.55"/>
+  <text
+    x="50%"
+    y="54%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    fill="#C5A059"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="220"
+    font-weight="700"
+    letter-spacing="8"
+  >JA</text>
+</svg>

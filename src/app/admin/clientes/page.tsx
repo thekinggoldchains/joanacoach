@@ -11,6 +11,7 @@ import { SexoBiologico } from "@/dominio/avaliacao/calculadora";
 import {
   IconeAdicionar,
   IconeBusca,
+  IconeCopiar,
   IconeSetaDireita,
 } from "@/componentes/comum/Icones";
 import { obterSessaoPadraoAdmin } from "@/servicos/autenticacao";
@@ -34,6 +35,7 @@ export default function PaginaClientesAdmin() {
   const [alturaCm, setAlturaCm] = useState("170");
   const [objetivoPrincipal, setObjetivoPrincipal] = useState("Ganhar Massa Muscular");
   const [linkConviteGerado, setLinkConviteGerado] = useState<string | null>(null);
+  const [linkCopiado, setLinkCopiado] = useState(false);
 
   useEffect(() => {
     const sessao = obterSessaoPadraoAdmin();
@@ -146,23 +148,23 @@ export default function PaginaClientesAdmin() {
           <tbody>
             {clientesFiltrados.map((cliente) => (
               <tr key={cliente.id}>
-                <td>
+                <td data-rotulo="Cliente" className={estilos.celulaPrincipal}>
                   <div className={estilos.celulaCliente}>
                     <span className={estilos.nomeCliente}>{cliente.nomeCompleto}</span>
                     <span className={estilos.emailCliente}>{cliente.email}</span>
                   </div>
                 </td>
-                <td>{cliente.idade} anos</td>
-                <td>{formatarPeso(cliente.ultimaAvaliacao?.pesoKg)}</td>
-                <td>{cliente.objetivoPrincipal}</td>
-                <td>
+                <td data-rotulo="Idade">{cliente.idade} anos</td>
+                <td data-rotulo="Peso Atual">{formatarPeso(cliente.ultimaAvaliacao?.pesoKg)}</td>
+                <td data-rotulo="Objetivo">{cliente.objetivoPrincipal}</td>
+                <td data-rotulo="Status">
                   {cliente.status === "ATIVO" ? (
                     <span className={estilos.seloAtivo}>Ativo</span>
                   ) : (
                     <span className={estilos.seloConvidado}>Aguardando Anamnese</span>
                   )}
                 </td>
-                <td>
+                <td data-rotulo="Ações" className={estilos.celulaAcao}>
                   <a href={`/admin/clientes/${cliente.id}`} className={estilos.botaoVer}>
                     <span>Ver</span>
                     <IconeSetaDireita tamanho={14} />
@@ -257,7 +259,25 @@ export default function PaginaClientesAdmin() {
 
               {linkConviteGerado && (
                 <div className={`${estilos.campoCompleto} ${estilos.caixaConviteGerado}`}>
-                  <strong>Link Único de Convite Gerado:</strong>
+                  <div className={estilos.topoConviteGerado}>
+                    <strong>Link Único de Convite Gerado:</strong>
+                    <button
+                      type="button"
+                      className={estilos.botaoCopiarLink}
+                      onClick={() => {
+                        if (typeof navigator !== "undefined" && navigator.clipboard) {
+                          const origem =
+                            typeof window !== "undefined" ? window.location.origin : "";
+                          navigator.clipboard.writeText(`${origem}${linkConviteGerado}`);
+                          setLinkCopiado(true);
+                          setTimeout(() => setLinkCopiado(false), 2500);
+                        }
+                      }}
+                    >
+                      <IconeCopiar tamanho={14} />
+                      <span>{linkCopiado ? "Copiado!" : "Copiar para WhatsApp"}</span>
+                    </button>
+                  </div>
                   <code>{linkConviteGerado}</code>
                 </div>
               )}

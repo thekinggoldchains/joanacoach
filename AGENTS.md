@@ -65,13 +65,14 @@ Toda interface construída neste repositório DEVE seguir fielmente a identidade
   - `$raio-pilula: 999px;` (Seletores tipo pílula e etiquetas de status)
 - **Elevação:** Sombra sutil em cartões (`$sombra-cartao: 0 2px 10px rgba(20, 20, 20, 0.04)`) combinada com borda `1px solid $cor-borda`.
 
-### 3.3 Padrões de Layout por Perfil
-- **Área Administradora (`ADMIN` — Desktop):**
-  - Layout em grade com **Barra Lateral fixa à esquerda** (`240px`, fundo `#141414`, monograma `JA` dourado no topo, item ativo com barra lateral dourada e fundo `rgba(197, 160, 89, 0.22)`).
-  - Área principal com fundo `#F8F7F4`, cabeçalho com título à esquerda e botão dourado à direita.
-  - Perfil do Cliente estruturado com navegação por **Abas Horizontais** (`Resumo`, `Avaliações`, `Treinos`, `Check-ins`, `Progresso`, `Mensagens`).
+### 3.3 Padrões de Layout por Perfil (100% PWA Instalável)
+- **Área Administradora (`ADMIN` — Dual Mobile PWA + Desktop):**
+  - **No Telemóvel / Tablet (`<= 900px` — uso principal da Personal em sala):** Cabeçalho compacto escuro (`#141414`) no topo + **Barra de Navegação Inferior** fixa com 5 ações rápidas (`Painel`, `Clientes`, `Avaliar`, `Treinos`, `Menu` em gaveta deslizante), tabelas convertidas em cartões de toque sem rolagem horizontal e modais em formato *Bottom Sheet*.
+  - **No Computador (`> 900px`):** Layout em grade com **Barra Lateral fixa à esquerda** (`240px`, fundo `#141414`, monograma `JA` dourado no topo, item ativo com barra lateral dourada e fundo `rgba(197, 160, 89, 0.16)`).
+  - Área principal com fundo `#F8F7F4`, iconografia 100% vetorial SVG enterprise (`src/componentes/comum/Icones.tsx`, **proibido usar emojis**).
+  - Perfil do Cliente estruturado com navegação por **Abas Horizontais** deslizáveis (`Resumo`, `Avaliações`, `Treinos`, `Check-ins`, `Progresso`, `Mensagens`).
 - **Área do Aluno (`ALUNO` — Mobile PWA):**
-  - Container mobile centralizado (`max-width: 480px` no computador, `100%` no celular), com **Barra de Navegação Inferior** fixa com 5 destinos (`Início`, `Treinos`, `Evolução`, `Check-in`, `Mais`).
+  - Container mobile centralizado (`max-width: 480px` no computador, `100%` no telemóvel), com **Barra de Navegação Inferior** fixa com 5 destinos (`Início`, `Treinos`, `Evolução`, `Check-in`, `Mais`).
 
 ---
 

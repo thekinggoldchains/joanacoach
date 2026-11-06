@@ -71,6 +71,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .pilulaFiltro {
@@ -81,6 +88,7 @@
   padding: 6px 14px;
   font-size: 13px;
   font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -94,6 +102,13 @@
   @include superficie-cartao;
   padding: 0;
   overflow-x: auto;
+
+  @media (max-width: 768px) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+  }
 }
 
 .tabela {
@@ -117,6 +132,76 @@
     letter-spacing: 0.04em;
     color: $cor-texto-secundario;
     background-color: $cor-fundo-claro;
+  }
+
+  @media (max-width: 768px) {
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 12px;
+      background-color: $cor-fundo-cartao;
+      border: 1px solid $cor-borda;
+      border-radius: $raio-medio;
+      padding: 16px;
+      box-shadow: $sombra-cartao;
+    }
+
+    td {
+      padding: 0;
+      border-bottom: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 13px;
+    }
+
+    td::before {
+      content: attr(data-rotulo);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: $cor-texto-secundario;
+    }
+  }
+}
+
+.celulaPrincipal {
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid $cor-borda !important;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.celulaAcao {
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+    padding-top: 8px !important;
+    border-top: 1px solid $cor-borda !important;
+
+    &::before {
+      display: none;
+    }
+
+    .botaoVer {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }
 
@@ -172,16 +257,28 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: 50;
+  z-index: 60;
+
+  @media (max-width: 640px) {
+    align-items: flex-end;
+    padding: 0;
+  }
 }
 
 .modalCartao {
   @include superficie-cartao;
   width: 100%;
   max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @media (max-width: 640px) {
+    border-radius: 18px 18px 0 0;
+    padding: 20px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 .tituloModal {
@@ -195,6 +292,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .campoCompleto {
@@ -221,7 +322,34 @@
   color: $cor-texto-primario;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+
+  code {
+    word-break: break-all;
+    font-size: 12px;
+  }
+}
+
+.topoConviteGerado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.botaoCopiarLink {
+  display: inline-flex;
+  align-items: center;
   gap: 6px;
+  background-color: $cor-fundo-cartao;
+  border: 1px solid $cor-borda-dourada;
+  color: $cor-texto-primario;
+  border-radius: $raio-pilula;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .acoesModal {

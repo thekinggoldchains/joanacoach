@@ -236,3 +236,34 @@ export function IconeRelogio(props: PropriedadesIcone) {
     </BaseIcone>
   );
 }
+
+/** Menu hambúrguer corporativo — Gaveta Mobile */
+export function IconeMenu(props: PropriedadesIcone) {
+  return (
+    <BaseIcone {...props}>
+      <line x1="4" y1="7" x2="20" y2="7" />
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <line x1="4" y1="17" x2="20" y2="17" />
+    </BaseIcone>
+  );
+}
+
+/** Fechar modal / gaveta */
+export function IconeFechar(props: PropriedadesIcone) {
+  return (
+    <BaseIcone {...props}>
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </BaseIcone>
+  );
+}
+
+/** Copiar link de convite para área de transferência */
+export function IconeCopiar(props: PropriedadesIcone) {
+  return (
+    <BaseIcone {...props}>
+      <rect x="9" y="9" width="13" height="13" rx="2" />
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </BaseIcone>
+  );
+}

@@ -14,4 +14,8 @@
   background-color: $cor-fundo-claro;
   color: $cor-texto-primario;
   padding: 28px 32px;
+
+  @media (max-width: 900px) {
+    padding: 76px 16px calc(92px + env(safe-area-inset-bottom, 0px));
+  }
 }

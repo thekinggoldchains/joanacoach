@@ -1,0 +1,235 @@
+@use "../../estilos/variaveis" as *;
+@use "../../estilos/mixins" as *;
+
+.cabecalhoMobileAdmin {
+  display: none;
+
+  @media (max-width: 900px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: $cor-fundo-escuro;
+    color: $cor-texto-claro;
+    border-bottom: 1px solid #262626;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 45;
+  }
+}
+
+.marcaMobile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.monogramaPequeno {
+  width: 34px;
+  height: 34px;
+  border-radius: $raio-pequeno;
+  background-color: rgba(197, 160, 89, 0.16);
+  border: 1px solid $cor-dourado-primario;
+  color: $cor-dourado-primario;
+  font-family: $fonte-destaque;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textosMarcaMobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.nomeMarcaMobile {
+  font-family: $fonte-destaque;
+  font-size: 16px;
+  font-weight: 700;
+  color: $cor-texto-claro;
+  line-height: 1.1;
+}
+
+.papelMobile {
+  font-family: $fonte-interface;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $cor-dourado-primario;
+  margin-top: 2px;
+}
+
+.atalhoClientesTopo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(197, 160, 89, 0.16);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  color: $cor-dourado-primario;
+  border-radius: $raio-pilula;
+  padding: 6px 12px;
+  font-family: $fonte-interface;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.barraInferiorAdmin {
+  display: none;
+
+  @media (max-width: 900px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $cor-fundo-escuro;
+    color: $cor-texto-claro;
+    border-top: 1px solid #262626;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 6px 4px calc(8px + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.itemInferior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 2px;
+  text-decoration: none;
+  color: #9E9E9E;
+  font-family: $fonte-interface;
+  font-size: 11px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.itemInferiorAtivo {
+  color: $cor-dourado-primario;
+  font-weight: 700;
+}
+
+.botaoMenu {
+  appearance: none;
+}
+
+.envoltorioIcone {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 24px;
+}
+
+.seloContadorMobile {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: $cor-dourado-primario;
+  color: $cor-fundo-escuro;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: $raio-pilula;
+  line-height: 1.2;
+}
+
+.fundoGaveta {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20, 20, 20, 0.65);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 60;
+}
+
+.folhaGaveta {
+  width: 100%;
+  max-width: 520px;
+  background-color: $cor-fundo-cartao;
+  color: $cor-texto-primario;
+  border-radius: 18px 18px 0 0;
+  padding: 20px 18px calc(24px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.22);
+}
+
+.topoGaveta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $cor-borda;
+  padding-bottom: 12px;
+}
+
+.tituloGaveta {
+  display: block;
+  font-family: $fonte-destaque;
+  font-size: 20px;
+  font-weight: 700;
+  color: $cor-texto-primario;
+}
+
+.subtituloGaveta {
+  display: block;
+  font-family: $fonte-interface;
+  font-size: 12px;
+  color: $cor-texto-secundario;
+}
+
+.botaoFecharGaveta {
+  width: 34px;
+  height: 34px;
+  border-radius: $raio-pequeno;
+  border: 1px solid $cor-borda;
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.listaLinksGaveta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.linkGaveta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: $raio-pequeno;
+  border: 1px solid $cor-borda;
+  background-color: $cor-fundo-claro;
+  color: $cor-texto-primario;
+  font-family: $fonte-interface;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.linkSairGaveta {
+  color: $cor-perigo;
+  border-color: rgba(198, 40, 40, 0.28);
+  background-color: rgba(198, 40, 40, 0.04);
+}
