@@ -34,7 +34,7 @@ const ITENS_PRINCIPAIS_MOBILE: ItemInferiorAdmin[] = [
   { rotulo: "Painel", href: "/admin/painel", Icone: IconePainel, principalPainel: true },
   { rotulo: "Clientes", href: "/admin/clientes", Icone: IconeClientes, exibirContador: true },
   { rotulo: "Avaliar", href: "/admin/clientes/cli_joao?aba=avaliacoes", Icone: IconeAvaliacao },
-  { rotulo: "Treinos", href: "/admin/painel", Icone: IconeHaltere },
+  { rotulo: "Treinos", href: "/admin/treinos", Icone: IconeHaltere },
 ];
 
 export function BarraInferiorAdmin({
@@ -140,7 +140,7 @@ export function BarraInferiorAdmin({
 
             <div className={estilos.listaLinksGaveta}>
               <a
-                href="/admin/painel"
+                href="/admin/checkins"
                 className={estilos.linkGaveta}
                 onClick={() => setMenuAberto(false)}
               >
@@ -149,7 +149,7 @@ export function BarraInferiorAdmin({
               </a>
 
               <a
-                href="/admin/painel"
+                href="/admin/agenda"
                 className={estilos.linkGaveta}
                 onClick={() => setMenuAberto(false)}
               >

@@ -57,10 +57,10 @@ export default function PaginaInicioAluno() {
           </span>
         </div>
         <h2 className={estilos.nomeTreino}>Treino A — Peito e Tríceps</h2>
-        <button type="button" className={estilos.botaoIniciarTreino}>
+        <a href="/app/treinos" className={estilos.botaoIniciarTreino}>
           <span>Iniciar Sessão de Treino</span>
           <IconeSetaDireita tamanho={16} />
-        </button>
+        </a>
       </section>
 
       <section className={estilos.secaoResumo}>

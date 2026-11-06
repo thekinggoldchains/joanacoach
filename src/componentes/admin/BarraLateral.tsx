@@ -31,9 +31,9 @@ const ITENS_MENU_ADMIN: ItemMenuAdmin[] = [
   { rotulo: "Dashboard", href: "/admin/painel", Icone: IconePainel, principalPainel: true },
   { rotulo: "Clientes", href: "/admin/clientes", Icone: IconeClientes, exibirContador: true },
   { rotulo: "Avaliações", href: "/admin/clientes/cli_joao?aba=avaliacoes", Icone: IconeAvaliacao },
-  { rotulo: "Plano de Treino", href: "/admin/painel", Icone: IconeHaltere },
-  { rotulo: "Check-ins", href: "/admin/painel", Icone: IconeCheckin },
-  { rotulo: "Agenda", href: "/admin/painel", Icone: IconeCalendario },
+  { rotulo: "Plano de Treino", href: "/admin/treinos", Icone: IconeHaltere },
+  { rotulo: "Check-ins", href: "/admin/checkins", Icone: IconeCheckin },
+  { rotulo: "Agenda", href: "/admin/agenda", Icone: IconeCalendario },
 ];
 
 export function BarraLateral({ rotaAtiva, totalClientesAtivos }: PropriedadesBarraLateral) {

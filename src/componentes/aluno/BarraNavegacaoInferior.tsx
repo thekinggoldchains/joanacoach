@@ -24,9 +24,9 @@ interface ItemNavegacaoMobile {
 
 const ITENS_NAVEGACAO_ALUNO: ItemNavegacaoMobile[] = [
   { rotulo: "Início", href: "/app/inicio", Icone: IconeInicio },
-  { rotulo: "Treinos", href: "/app/inicio", Icone: IconeHaltere },
+  { rotulo: "Treinos", href: "/app/treinos", Icone: IconeHaltere },
   { rotulo: "Evolução", href: "/app/evolucao", Icone: IconeEvolucao },
-  { rotulo: "Check-in", href: "/app/inicio", Icone: IconeCheckin },
+  { rotulo: "Check-in", href: "/app/checkin", Icone: IconeCheckin },
   { rotulo: "Mais", href: "/app/perfil", Icone: IconePerfilUsuario },
 ];
 
