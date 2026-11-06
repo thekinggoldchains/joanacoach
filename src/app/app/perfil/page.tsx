@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { obterPerfilCompletoCliente } from "@/acoes/clientes";
+import { IconeAlertaClinico, IconeSair } from "@/componentes/comum/Icones";
 import { obterSessaoPadraoAluno } from "@/servicos/autenticacao";
 import estilos from "./Perfil.module.scss";
 
@@ -73,7 +74,12 @@ export default function PaginaPerfilAluno() {
       <section className={estilos.cartaoSecao}>
         <h2 className={estilos.tituloSecao}>Minha Anamnese e PAR-Q</h2>
         <div className={estilos.alertaClinico}>
-          ⚠️ <strong>Atenção Articular (PAR-Q):</strong> {lesoesOuDores}
+          <span className={estilos.iconeAlertaClinico}>
+            <IconeAlertaClinico tamanho={16} />
+          </span>
+          <span>
+            <strong>Atenção Articular (PAR-Q):</strong> {lesoesOuDores}
+          </span>
         </div>
         <div className={estilos.listaDados}>
           <div className={estilos.linhaDado}>
@@ -88,7 +94,8 @@ export default function PaginaPerfilAluno() {
       </section>
 
       <a href="/entrar" className={estilos.linkSair}>
-        Terminar Sessão
+        <IconeSair tamanho={16} />
+        <span>Terminar Sessão</span>
       </a>
     </main>
   );

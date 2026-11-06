@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { AnguloFoto } from "@/acoes/clientes";
+import { IconeCamera } from "@/componentes/comum/Icones";
 import estilos from "./Evolucao.module.scss";
 
 export default function PaginaEvolucaoAluno() {
@@ -169,7 +170,8 @@ export default function PaginaEvolucaoAluno() {
         </div>
 
         <button type="button" className={estilos.botaoEnviarFotos}>
-          📸 Enviar Novas Fotos
+          <IconeCamera tamanho={16} />
+          <span>Enviar Novas Fotos</span>
         </button>
       </section>
     </main>

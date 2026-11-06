@@ -35,7 +35,18 @@
   color: $cor-texto-secundario;
 }
 
+.botaoVoltar {
+  @include botao-contorno;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
 .alertaParq {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background-color: rgba(245, 124, 0, 0.14);
   border: 1px solid $cor-alerta;
   color: $cor-texto-primario;
@@ -43,6 +54,13 @@
   padding: 12px 16px;
   font-size: 14px;
   font-weight: 600;
+}
+
+.iconeAlertaParq {
+  color: $cor-alerta;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .barraAbas {

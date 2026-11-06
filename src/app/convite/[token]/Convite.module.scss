@@ -202,6 +202,9 @@
 }
 
 .alertaParq {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   background-color: $cor-dourado-suave;
   border: 1px solid $cor-borda-dourada;
   color: $cor-texto-primario;
@@ -209,6 +212,15 @@
   padding: 10px 12px;
   font-family: $fonte-interface;
   font-size: 12px;
+  line-height: 1.4;
+}
+
+.iconeAlertaParq {
+  color: $cor-alerta;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1px;
+  flex-shrink: 0;
 }
 
 .botaoConcluir {

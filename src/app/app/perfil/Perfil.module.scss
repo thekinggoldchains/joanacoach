@@ -116,6 +116,9 @@
 }
 
 .alertaClinico {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   background-color: rgba(245, 124, 0, 0.12);
   border: 1px solid $cor-alerta;
   color: $cor-texto-primario;
@@ -126,10 +129,20 @@
   line-height: 1.4;
 }
 
+.iconeAlertaClinico {
+  color: $cor-alerta;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
 .linkSair {
   @include botao-contorno;
-  display: block;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   text-decoration: none;
   color: $cor-perigo;
   border-color: rgba(198, 40, 40, 0.35);

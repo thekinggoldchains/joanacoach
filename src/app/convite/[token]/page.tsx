@@ -6,6 +6,7 @@ import {
   NivelAtividade,
   obterClientePorTokenConvite,
 } from "@/acoes/clientes";
+import { IconeAlertaClinico } from "@/componentes/comum/Icones";
 import estilos from "./Convite.module.scss";
 
 export interface PropriedadesPaginaConvite {
@@ -238,7 +239,12 @@ export default function PaginaConviteAluno(propriedades: any = {}) {
 
             {temAlertaParq && (
               <div className={estilos.alertaParq}>
-                ⚠️ A Personal Joana Antunes será notificada sobre sua restrição no PAR-Q para adaptar seu plano com segurança.
+                <span className={estilos.iconeAlertaParq}>
+                  <IconeAlertaClinico tamanho={17} />
+                </span>
+                <span>
+                  A Personal Joana Antunes será notificada sobre sua restrição no PAR-Q para adaptar seu plano com segurança.
+                </span>
               </div>
             )}
           </section>

@@ -50,6 +50,39 @@
   gap: 8px;
 }
 
+.topoIndicador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.iconeKpi {
+  width: 34px;
+  height: 34px;
+  border-radius: $raio-pequeno;
+  background-color: $cor-dourado-suave;
+  border: 1px solid $cor-borda-dourada;
+  color: $cor-dourado-primario;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconeKpiAlerta {
+  width: 34px;
+  height: 34px;
+  border-radius: $raio-pequeno;
+  background-color: rgba(245, 124, 0, 0.12);
+  border: 1px solid rgba(245, 124, 0, 0.28);
+  color: $cor-alerta;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .rotuloIndicador {
   font-size: 13px;
   font-weight: 600;
@@ -98,9 +131,13 @@
 }
 
 .linkTodos {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 13px;
   font-weight: 600;
   color: $cor-dourado-primario;
+  text-decoration: none;
 }
 
 .listaRapida {
@@ -137,7 +174,16 @@
   color: $cor-texto-secundario;
 }
 
+.acoesItemCliente {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .seloAlerta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background-color: rgba(245, 124, 0, 0.14);
   color: $cor-alerta;
   padding: 4px 10px;

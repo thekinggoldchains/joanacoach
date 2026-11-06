@@ -2,6 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import { listarClientesDoTreinador, PerfilCompletoCliente } from "@/acoes/clientes";
+import {
+  IconeAdicionar,
+  IconeAlertaClinico,
+  IconeAvaliacao,
+  IconeCheckin,
+  IconeClientes,
+  IconeSetaDireita,
+} from "@/componentes/comum/Icones";
 import { obterSessaoPadraoAdmin } from "@/servicos/autenticacao";
 import estilos from "./Painel.module.scss";
 
@@ -30,31 +38,52 @@ export default function PaginaPainelAdmin() {
           </p>
         </div>
         <a href="/admin/clientes" className={estilos.botaoAcaoDourado}>
-          + Novo Cliente
+          <IconeAdicionar tamanho={16} />
+          <span>Novo Cliente</span>
         </a>
       </header>
 
       <section className={estilos.gradeIndicadores} aria-label="Indicadores Principais">
         <div className={estilos.cartaoIndicador}>
-          <span className={estilos.rotuloIndicador}>Clientes Ativos</span>
+          <div className={estilos.topoIndicador}>
+            <span className={estilos.rotuloIndicador}>Clientes Ativos</span>
+            <span className={estilos.iconeKpi}>
+              <IconeClientes tamanho={17} />
+            </span>
+          </div>
           <strong className={estilos.valorIndicador}>{clientesAtivos || 2}</strong>
           <span className={estilos.detalheIndicador}>Check-ins Pendentes: 3</span>
         </div>
 
         <div className={estilos.cartaoIndicador}>
-          <span className={estilos.rotuloIndicador}>Anamneses Pendentes</span>
+          <div className={estilos.topoIndicador}>
+            <span className={estilos.rotuloIndicador}>Anamneses Pendentes</span>
+            <span className={estilos.iconeKpi}>
+              <IconeCheckin tamanho={17} />
+            </span>
+          </div>
           <strong className={estilos.valorIndicador}>{anamnesesPendentes || 1}</strong>
           <span className={estilos.detalheIndicador}>Aguardando ativação de convite</span>
         </div>
 
         <div className={estilos.cartaoIndicador}>
-          <span className={estilos.rotuloIndicador}>Avaliações Realizadas</span>
+          <div className={estilos.topoIndicador}>
+            <span className={estilos.rotuloIndicador}>Avaliações Realizadas</span>
+            <span className={estilos.iconeKpi}>
+              <IconeAvaliacao tamanho={17} />
+            </span>
+          </div>
           <strong className={estilos.valorIndicador}>{avaliacoesRealizadas || 7}</strong>
           <span className={estilos.detalheIndicador}>Treinos Concluídos Hoje: 8</span>
         </div>
 
         <div className={estilos.cartaoIndicador}>
-          <span className={estilos.rotuloIndicador}>Alertas PAR-Q</span>
+          <div className={estilos.topoIndicador}>
+            <span className={estilos.rotuloIndicador}>Alertas PAR-Q</span>
+            <span className={estilos.iconeKpiAlerta}>
+              <IconeAlertaClinico tamanho={17} />
+            </span>
+          </div>
           <strong className={estilos.valorIndicador}>{alertasParq || 1}</strong>
           <span className={estilos.detalheIndicador}>Avaliações Agendadas: 2</span>
         </div>
@@ -65,7 +94,8 @@ export default function PaginaPainelAdmin() {
           <div className={estilos.cabecalhoCartao}>
             <h2 className={estilos.tituloCartao}>Acompanhamento de Clientes</h2>
             <a href="/admin/clientes" className={estilos.linkTodos}>
-              Ver todos
+              <span>Ver todos</span>
+              <IconeSetaDireita tamanho={14} />
             </a>
           </div>
 
@@ -81,9 +111,12 @@ export default function PaginaPainelAdmin() {
                       : "Sem avaliação"}
                   </span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div className={estilos.acoesItemCliente}>
                   {cliente.anamnese?.possuiRestricaoMedica && (
-                    <span className={estilos.seloAlerta}>PAR-Q Positivo</span>
+                    <span className={estilos.seloAlerta}>
+                      <IconeAlertaClinico tamanho={13} />
+                      <span>PAR-Q Positivo</span>
+                    </span>
                   )}
                   <a href={`/admin/clientes/${cliente.id}`} className={estilos.botaoVer}>
                     Ver Perfil

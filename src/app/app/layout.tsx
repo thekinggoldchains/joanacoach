@@ -8,7 +8,7 @@ export default function LayoutAppAluno({
   children: React.ReactNode;
 }) {
   return (
-    <div className={estilos.fundoMobileWrapper}>
+    <div className={estilos.envoltorioMobile}>
       <div className={estilos.containerAppMobile}>
         {children}
         <BarraNavegacaoInferior rotaAtiva="/app/inicio" />

@@ -12,6 +12,10 @@ import {
   calcularPollock3Dobras,
   calcularPollock7Dobras,
 } from "@/dominio/avaliacao/calculadora";
+import {
+  IconeAlertaClinico,
+  IconeSetaEsquerda,
+} from "@/componentes/comum/Icones";
 import { obterSessaoPadraoAdmin } from "@/servicos/autenticacao";
 import estilos from "./PerfilCliente.module.scss";
 
@@ -155,15 +159,21 @@ export default function PaginaPerfilClienteAdmin(propriedades: any = {}) {
             {perfil.email} • {perfil.objetivoPrincipal}
           </span>
         </div>
-        <a href="/admin/clientes" className={estilos.botaoAba}>
-          Voltar para Clientes
+        <a href="/admin/clientes" className={estilos.botaoVoltar}>
+          <IconeSetaEsquerda tamanho={16} />
+          <span>Voltar para Clientes</span>
         </a>
       </header>
 
       {perfil.anamnese?.possuiRestricaoMedica && (
         <div className={estilos.alertaParq} role="alert">
-          ⚠️ Atenção Médica (PAR-Q Positivo) —{" "}
-          {perfil.anamnese.lesoesOuDores || "Restrição articular relatada na anamnese"}
+          <span className={estilos.iconeAlertaParq}>
+            <IconeAlertaClinico tamanho={18} />
+          </span>
+          <span>
+            Atenção Médica (PAR-Q Positivo) —{" "}
+            {perfil.anamnese.lesoesOuDores || "Restrição articular relatada na anamnese"}
+          </span>
         </div>
       )}
 

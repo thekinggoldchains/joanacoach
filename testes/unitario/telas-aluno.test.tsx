@@ -21,18 +21,20 @@ describe("Fluxo Mobile PWA do Aluno (/convite/[token] e /app/*)", () => {
     expect(screen.getByText(/Próximo Treino/i)).toBeDefined();
   });
 
-  it("deve renderizar a tela Minha Evolução (/app/evolucao) com gráfico de peso, histórico Pollock e fotos", () => {
-    render(<PaginaEvolucaoAluno />);
+  it("deve renderizar a tela Minha Evolução (/app/evolucao) com gráfico de peso, histórico Pollock e fotos sem emojis", () => {
+    const { container } = render(<PaginaEvolucaoAluno />);
     expect(screen.getByText(/Minha Evolução/i)).toBeDefined();
     expect(screen.getByText(/78,5 kg/i)).toBeDefined();
     expect(screen.getByText(/14,2%/i)).toBeDefined();
     expect(screen.getByText(/Histórico de Avaliações/i)).toBeDefined();
     expect(screen.getByText(/Fotos de Progresso/i)).toBeDefined();
+    expect(/\p{Extended_Pictographic}/u.test(container.textContent || "")).toBe(false);
   });
 
-  it("deve renderizar a tela de Perfil do Aluno (/app/perfil) com dados e anamnese", () => {
-    render(<PaginaPerfilAluno />);
+  it("deve renderizar a tela de Perfil do Aluno (/app/perfil) com dados e anamnese sem emojis", () => {
+    const { container } = render(<PaginaPerfilAluno />);
     expect(screen.getByText(/João Silva/i)).toBeDefined();
     expect(screen.getByText(/Ganhar Massa Muscular/i)).toBeDefined();
+    expect(/\p{Extended_Pictographic}/u.test(container.textContent || "")).toBe(false);
   });
 });

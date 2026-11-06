@@ -234,5 +234,8 @@
 .botaoEnviarFotos {
   @include botao-contorno;
   width: 100%;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }

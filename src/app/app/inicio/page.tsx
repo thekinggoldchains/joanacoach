@@ -2,6 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import { obterPerfilCompletoCliente } from "@/acoes/clientes";
+import {
+  IconeRelogio,
+  IconeSetaDireita,
+  IconeTendenciaAlta,
+  IconeTendenciaBaixa,
+} from "@/componentes/comum/Icones";
 import { obterSessaoPadraoAluno } from "@/servicos/autenticacao";
 import estilos from "./Inicio.module.scss";
 
@@ -45,11 +51,15 @@ export default function PaginaInicioAluno() {
       <section className={estilos.cartaoProximoTreino} aria-label="Destaque de Treino">
         <div className={estilos.topoProximoTreino}>
           <span className={estilos.seloProximoTreino}>Próximo Treino</span>
-          <span className={estilos.duracaoTreino}>6 exercícios • ~50 min</span>
+          <span className={estilos.duracaoTreino}>
+            <IconeRelogio tamanho={13} />
+            <span>6 exercícios • ~50 min</span>
+          </span>
         </div>
         <h2 className={estilos.nomeTreino}>Treino A — Peito e Tríceps</h2>
         <button type="button" className={estilos.botaoIniciarTreino}>
-          Iniciar Sessão de Treino
+          <span>Iniciar Sessão de Treino</span>
+          <IconeSetaDireita tamanho={16} />
         </button>
       </section>
 
@@ -57,7 +67,8 @@ export default function PaginaInicioAluno() {
         <div className={estilos.cabecalhoSecao}>
           <h2 className={estilos.tituloSecao}>Resumo Corporal</h2>
           <a href="/app/evolucao" className={estilos.linkEvolucao}>
-            Ver evolução completa →
+            <span>Ver evolução completa</span>
+            <IconeSetaDireita tamanho={14} />
           </a>
         </div>
 
@@ -65,19 +76,28 @@ export default function PaginaInicioAluno() {
           <div className={estilos.cartaoMetrica}>
             <span className={estilos.rotuloMetrica}>Peso Atual</span>
             <strong className={estilos.valorMetrica}>{pesoAtual}</strong>
-            <span className={estilos.variacaoPositiva}>↓ -1,8 kg</span>
+            <span className={estilos.variacaoPositiva}>
+              <IconeTendenciaBaixa tamanho={13} />
+              <span>-1,8 kg</span>
+            </span>
           </div>
 
           <div className={estilos.cartaoMetrica}>
             <span className={estilos.rotuloMetrica}>% Gordura</span>
             <strong className={estilos.valorMetrica}>{percentualGordura}</strong>
-            <span className={estilos.variacaoPositiva}>↓ -2,1%</span>
+            <span className={estilos.variacaoPositiva}>
+              <IconeTendenciaBaixa tamanho={13} />
+              <span>-2,1%</span>
+            </span>
           </div>
 
           <div className={estilos.cartaoMetrica}>
             <span className={estilos.rotuloMetrica}>Massa Magra</span>
             <strong className={estilos.valorMetrica}>{massaMagra}</strong>
-            <span className={estilos.variacaoPositiva}>↑ +1,2 kg</span>
+            <span className={estilos.variacaoPositiva}>
+              <IconeTendenciaAlta tamanho={13} />
+              <span>+1,2 kg</span>
+            </span>
           </div>
         </div>
       </section>

@@ -37,7 +37,7 @@ describe("Telas Administrativas da Personal (Joana Antunes Coaching)", () => {
 
     fireEvent.change(campoBusca, { target: { value: "" } });
 
-    const botaoNovoCliente = screen.getByText("+ Novo Cliente");
+    const botaoNovoCliente = screen.getByRole("button", { name: /Novo Cliente/i });
     fireEvent.click(botaoNovoCliente);
 
     const inputNome = screen.getByLabelText(/Nome Completo/i);
@@ -60,8 +60,11 @@ describe("Telas Administrativas da Personal (Joana Antunes Coaching)", () => {
       expect(screen.getByText("João Silva")).toBeDefined();
     });
 
-    // Alerta médico PAR-Q
-    expect(screen.getByText(/⚠️ Atenção Médica \(PAR-Q Positivo\)/i)).toBeDefined();
+    // Alerta médico PAR-Q (ícone vetorial enterprise, sem emoji)
+    const alertaParq = screen.getByRole("alert");
+    expect(alertaParq.textContent).toMatch(/Atenção Médica \(PAR-Q Positivo\)/i);
+    expect(/\p{Extended_Pictographic}/u.test(alertaParq.textContent || "")).toBe(false);
+    expect(alertaParq.querySelector("svg")).not.toBeNull();
 
     // Aba Resumo (padrão)
     expect(screen.getAllByText(/28 anos/i).length).toBeGreaterThan(0);

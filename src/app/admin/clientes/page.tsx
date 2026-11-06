@@ -8,6 +8,11 @@ import {
   StatusCliente,
 } from "@/acoes/clientes";
 import { SexoBiologico } from "@/dominio/avaliacao/calculadora";
+import {
+  IconeAdicionar,
+  IconeBusca,
+  IconeSetaDireita,
+} from "@/componentes/comum/Icones";
 import { obterSessaoPadraoAdmin } from "@/servicos/autenticacao";
 import estilos from "./Clientes.module.scss";
 
@@ -76,18 +81,24 @@ export default function PaginaClientesAdmin() {
             setModalAberto(true);
           }}
         >
-          + Novo Cliente
+          <IconeAdicionar tamanho={16} />
+          <span>Novo Cliente</span>
         </button>
       </header>
 
       <div className={estilos.barraFerramentas}>
-        <input
-          type="search"
-          className={estilos.campoPesquisa}
-          placeholder="Pesquisar cliente..."
-          value={termoBusca}
-          onChange={(e) => setTermoBusca(e.target.value)}
-        />
+        <div className={estilos.envoltorioBusca}>
+          <span className={estilos.iconeBusca}>
+            <IconeBusca tamanho={16} />
+          </span>
+          <input
+            type="search"
+            className={estilos.campoPesquisa}
+            placeholder="Pesquisar cliente..."
+            value={termoBusca}
+            onChange={(e) => setTermoBusca(e.target.value)}
+          />
+        </div>
 
         <div className={estilos.grupoFiltros}>
           <button
@@ -153,7 +164,8 @@ export default function PaginaClientesAdmin() {
                 </td>
                 <td>
                   <a href={`/admin/clientes/${cliente.id}`} className={estilos.botaoVer}>
-                    Ver
+                    <span>Ver</span>
+                    <IconeSetaDireita tamanho={14} />
                   </a>
                 </td>
               </tr>

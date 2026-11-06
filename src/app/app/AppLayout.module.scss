@@ -1,6 +1,7 @@
 @use "../../estilos/variaveis" as *;
+@use "../../estilos/mixins" as *;
 
-.fundoMobileWrapper {
+.envoltorioMobile {
   min-height: 100vh;
   background-color: #EAE6DF;
   display: flex;

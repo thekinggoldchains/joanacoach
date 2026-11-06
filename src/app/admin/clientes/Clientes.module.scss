@@ -31,6 +31,9 @@
 
 .botaoNovoCliente {
   @include botao-dourado;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .barraFerramentas {
@@ -42,9 +45,26 @@
   gap: 16px;
 }
 
+.envoltorioBusca {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+}
+
+.iconeBusca {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $cor-texto-secundario;
+  display: inline-flex;
+  align-items: center;
+  pointer-events: none;
+}
+
 .campoPesquisa {
   @include campo-entrada;
-  max-width: 360px;
+  padding-left: 38px;
 }
 
 .grupoFiltros {
@@ -138,7 +158,9 @@
 
 .botaoVer {
   @include botao-contorno;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   text-decoration: none;
 }
 

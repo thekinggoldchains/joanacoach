@@ -89,16 +89,33 @@
 }
 
 .itemAtivo {
-  background-color: rgba(197, 160, 89, 0.22);
+  background-color: rgba(197, 160, 89, 0.16);
   color: $cor-texto-claro;
   border-left-color: $cor-dourado-primario;
   font-weight: 600;
+
+  .iconeItem {
+    color: $cor-dourado-primario;
+  }
 }
 
 .rotuloItem {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
+}
+
+.iconeItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8E8E8E;
+  transition: color 0.2s ease;
+}
+
+.itemNavegacao:hover .iconeItem,
+.linkSair:hover .iconeItem {
+  color: $cor-dourado-primario;
 }
 
 .contadorSelo {
